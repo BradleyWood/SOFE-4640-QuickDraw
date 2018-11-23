@@ -15,6 +15,7 @@ class QuickDrawCanvas(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) 
 
     private val strokes = LinkedList<Stroke>()
     internal val paint: Paint = Paint()
+    var strokeListener: StrokeListener? = null
 
     init {
         paint.color = Color.BLACK
@@ -48,6 +49,7 @@ class QuickDrawCanvas(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) 
             }
             MotionEvent.ACTION_UP -> {
                 strokes.last.addPoint(x, y)
+                strokeListener!!.onStroke(strokes.last)
                 true
             }
 
@@ -79,4 +81,10 @@ class Stroke {
             path.lineTo(x.toFloat(), y.toFloat())
         }
     }
+}
+
+interface StrokeListener {
+
+    fun onStroke(stroke: Stroke)
+
 }
