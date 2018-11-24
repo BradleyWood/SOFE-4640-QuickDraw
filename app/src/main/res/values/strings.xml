@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">quickdraw</string>
     <string name="play">Play</string>
+    <string name="draw_color">Draw Color</string>
 </resources>
