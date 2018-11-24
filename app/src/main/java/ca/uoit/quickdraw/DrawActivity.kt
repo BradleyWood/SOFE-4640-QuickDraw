@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import ca.uoit.quickdraw.view.QuickDrawCanvas
 import ca.uoit.quickdraw.view.Stroke
 import ca.uoit.quickdraw.view.StrokeListener
@@ -41,6 +42,8 @@ class DrawActivity : AppCompatActivity(), StrokeListener {
                 finish()
             }
         }, time)
+
+        Toast.makeText(this, "Draw ${intent.getStringExtra("object")} in 20 seconds.", Toast.LENGTH_LONG).show()
     }
 
     override fun onStroke(view: View, stroke: Stroke) {
