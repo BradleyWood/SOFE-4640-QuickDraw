@@ -80,13 +80,12 @@ class SettingsActivity : AppCompatPreferenceActivity() {
             bindPreferenceSummaryToValue(pref)
 
             val prefs = pref.context.getSharedPreferences("preferences", AppCompatActivity.MODE_PRIVATE)
-            val drawColor = prefs.getInt("draw_color", Color.RED)
 
             pref.setOnPreferenceClickListener {
                 ColorPickerDialogBuilder
                     .with(it.context)
                     .setTitle("Choose color")
-                    .initialColor(drawColor)
+                    .initialColor(prefs.getInt("draw_color", Color.RED))
                     .showAlphaSlider(false)
                     .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                     .density(12)
