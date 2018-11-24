@@ -1,6 +1,7 @@
 package ca.uoit.quickdraw
 
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -24,7 +25,10 @@ class DrawActivity : AppCompatActivity(), StrokeListener {
         setContentView(R.layout.activity_draw)
 
         val canvas = findViewById<QuickDrawCanvas>(R.id.canvas)
+
+        canvas.setDrawColor(intent.getIntExtra("draw_color", Color.RED))
         canvas.strokeListener = this
+
         strokes.clear()
 
         val time = intent.getLongExtra("time", 20000L)

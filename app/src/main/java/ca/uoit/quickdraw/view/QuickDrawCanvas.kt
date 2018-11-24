@@ -14,7 +14,7 @@ import kotlin.math.roundToInt
 class QuickDrawCanvas(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) {
 
     private val strokes = LinkedList<Stroke>()
-    internal val paint: Paint = Paint()
+    private val paint: Paint = Paint()
     var strokeListener: StrokeListener? = null
 
     init {
@@ -24,6 +24,10 @@ class QuickDrawCanvas(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) 
         paint.style = Paint.Style.STROKE
         paint.strokeJoin = Paint.Join.ROUND
         paint.strokeCap = Paint.Cap.ROUND
+    }
+
+    fun setDrawColor(color: Int) {
+        paint.color = color
     }
 
     override fun onDraw(canvas: Canvas?) {
