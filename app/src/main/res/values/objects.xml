@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="objects">
+        <item>aircraft carrier</item>
+        <item>airplane</item>
+        <item>alarm clock</item>
+        <item>ambulance</item>
+        <item>angel</item>
+        <item>animal migration</item>
+        <item>ant</item>
+        <item>anvil</item>
+        <item>apple</item>
+        <item>arm</item>
+        <item>asparagus</item>
+        <item>axe</item>
+        <item>backpack</item>
+        <item>banana</item>
+        <item>bandage</item>
+        <item>barn</item>
+        <item>baseball</item>
+        <item>baseball bat</item>
+        <item>basket</item>
+        <item>basketball</item>
+        <item>bat</item>
+        <item>bathtub</item>
+        <item>beach</item>
+        <item>bear</item>
+        <item>beard</item>
+        <item>bed</item>
+        <item>bee</item>
+        <item>belt</item>
+        <item>bench</item>
+        <item>bicycle</item>
+        <item>binoculars</item>
+        <item>bird</item>
+        <item>birthday cake</item>
+        <item>blackberry</item>
+        <item>blueberry</item>
+        <item>book</item>
+        <item>boomerang</item>
+        <item>bottlecap</item>
+        <item>bowtie</item>
+        <item>bracelet</item>
+        <item>brain</item>
+        <item>bread</item>
+        <item>bridge</item>
+        <item>broccoli</item>
+        <item>broom</item>
+        <item>bucket</item>
+        <item>bulldozer</item>
+        <item>bus</item>
+        <item>bush</item>
+        <item>butterfly</item>
+        <item>cactus</item>
+        <item>cake</item>
+        <item>calculator</item>
+        <item>calendar</item>
+        <item>camel</item>
+        <item>camera</item>
+        <item>camouflage</item>
+        <item>campfire</item>
+        <item>candle</item>
+        <item>cannon</item>
+        <item>canoe</item>
+        <item>car</item>
+        <item>carrot</item>
+        <item>castle</item>
+        <item>cat</item>
+        <item>ceiling fan</item>
+        <item>cello</item>
+        <item>cell phone</item>
+        <item>chair</item>
+        <item>chandelier</item>
+        <item>church</item>
+        <item>circle</item>
+        <item>clarinet</item>
+        <item>clock</item>
+        <item>cloud</item>
+        <item>coffee cup</item>
+        <item>compass</item>
+        <item>computer</item>
+        <item>cookie</item>
+        <item>cooler</item>
+        <item>couch</item>
+        <item>cow</item>
+        <item>crab</item>
+        <item>crayon</item>
+        <item>crocodile</item>
+        <item>crown</item>
+        <item>cruise ship</item>
+        <item>cup</item>
+        <item>diamond</item>
+        <item>dishwasher</item>
+        <item>diving board</item>
+        <item>dog</item>
+        <item>dolphin</item>
+        <item>donut</item>
+        <item>door</item>
+        <item>dragon</item>
+        <item>dresser</item>
+        <item>drill</item>
+        <item>drums</item>
+        <item>duck</item>
+        <item>dumbbell</item>
+        <item>ear</item>
+        <item>elbow</item>
+        <item>elephant</item>
+        <item>envelope</item>
+        <item>eraser</item>
+        <item>eye</item>
+        <item>eyeglasses</item>
+        <item>face</item>
+        <item>fan</item>
+        <item>feather</item>
+        <item>fence</item>
+        <item>finger</item>
+        <item>fire hydrant</item>
+        <item>fireplace</item>
+        <item>firetruck</item>
+        <item>fish</item>
+        <item>flamingo</item>
+        <item>flashlight</item>
+        <item>flip flops</item>
+        <item>floor lamp</item>
+        <item>flower</item>
+        <item>flying saucer</item>
+        <item>foot</item>
+        <item>fork</item>
+        <item>frog</item>
+        <item>frying pan</item>
+        <item>garden</item>
+        <item>garden hose</item>
+        <item>giraffe</item>
+        <item>goatee</item>
+        <item>golf club</item>
+        <item>grapes</item>
+        <item>grass</item>
+        <item>guitar</item>
+        <item>hamburger</item>
+        <item>hammer</item>
+        <item>hand</item>
+        <item>harp</item>
+        <item>hat</item>
+        <item>headphones</item>
+        <item>hedgehog</item>
+        <item>helicopter</item>
+        <item>helmet</item>
+        <item>hexagon</item>
+        <item>hockey puck</item>
+        <item>hockey stick</item>
+        <item>horse</item>
+        <item>hospital</item>
+        <item>hot air balloon</item>
+        <item>hot dog</item>
+        <item>hot tub</item>
+        <item>hourglass</item>
+        <item>house</item>
+        <item>house plant</item>
+        <item>hurricane</item>
+        <item>ice cream</item>
+        <item>jacket</item>
+        <item>jail</item>
+        <item>kangaroo</item>
+        <item>key</item>
+        <item>keyboard</item>
+        <item>knee</item>
+        <item>knife</item>
+        <item>ladder</item>
+        <item>lantern</item>
+        <item>laptop</item>
+        <item>leaf</item>
+        <item>leg</item>
+        <item>light bulb</item>
+        <item>lighter</item>
+        <item>lighthouse</item>
+        <item>lightning</item>
+        <item>line</item>
+        <item>lion</item>
+        <item>lipstick</item>
+        <item>lobster</item>
+        <item>lollipop</item>
+        <item>mailbox</item>
+        <item>map</item>
+        <item>marker</item>
+        <item>matches</item>
+        <item>megaphone</item>
+        <item>mermaid</item>
+        <item>microphone</item>
+        <item>microwave</item>
+        <item>monkey</item>
+        <item>moon</item>
+        <item>mosquito</item>
+        <item>motorbike</item>
+        <item>mountain</item>
+        <item>mouse</item>
+        <item>moustache</item>
+        <item>mouth</item>
+        <item>mug</item>
+        <item>mushroom</item>
+        <item>nail</item>
+        <item>necklace</item>
+        <item>nose</item>
+        <item>ocean</item>
+        <item>octagon</item>
+        <item>octopus</item>
+        <item>onion</item>
+        <item>oven</item>
+        <item>owl</item>
+        <item>paintbrush</item>
+        <item>paint can</item>
+        <item>palm tree</item>
+        <item>panda</item>
+        <item>pants</item>
+        <item>paper clip</item>
+        <item>parachute</item>
+        <item>parrot</item>
+        <item>passport</item>
+        <item>peanut</item>
+        <item>pear</item>
+        <item>peas</item>
+        <item>pencil</item>
+        <item>penguin</item>
+        <item>piano</item>
+        <item>pickup truck</item>
+        <item>picture frame</item>
+        <item>pig</item>
+        <item>pillow</item>
+        <item>pineapple</item>
+        <item>pizza</item>
+        <item>pliers</item>
+        <item>police car</item>
+        <item>pond</item>
+        <item>pool</item>
+        <item>popsicle</item>
+        <item>postcard</item>
+        <item>potato</item>
+        <item>power outlet</item>
+        <item>purse</item>
+        <item>rabbit</item>
+        <item>raccoon</item>
+        <item>radio</item>
+        <item>rain</item>
+        <item>rainbow</item>
+        <item>rake</item>
+        <item>remote control</item>
+        <item>rhinoceros</item>
+        <item>rifle</item>
+        <item>river</item>
+        <item>roller coaster</item>
+        <item>rollerskates</item>
+        <item>sailboat</item>
+        <item>sandwich</item>
+        <item>saw</item>
+        <item>saxophone</item>
+        <item>school bus</item>
+        <item>scissors</item>
+        <item>scorpion</item>
+        <item>screwdriver</item>
+        <item>sea turtle</item>
+        <item>see saw</item>
+        <item>shark</item>
+        <item>sheep</item>
+        <item>shoe</item>
+        <item>shorts</item>
+        <item>shovel</item>
+        <item>sink</item>
+        <item>skateboard</item>
+        <item>skull</item>
+        <item>skyscraper</item>
+        <item>sleeping bag</item>
+        <item>smiley face</item>
+        <item>snail</item>
+        <item>snake</item>
+        <item>snorkel</item>
+        <item>snowflake</item>
+        <item>snowman</item>
+        <item>soccer ball</item>
+        <item>sock</item>
+        <item>speedboat</item>
+        <item>spider</item>
+        <item>spoon</item>
+        <item>spreadsheet</item>
+        <item>square</item>
+        <item>squiggle</item>
+        <item>squirrel</item>
+        <item>stairs</item>
+        <item>star</item>
+        <item>steak</item>
+        <item>stereo</item>
+        <item>stethoscope</item>
+        <item>stitches</item>
+        <item>stop sign</item>
+        <item>stove</item>
+        <item>strawberry</item>
+        <item>streetlight</item>
+        <item>string bean</item>
+        <item>submarine</item>
+        <item>suitcase</item>
+        <item>sun</item>
+        <item>swan</item>
+        <item>sweater</item>
+        <item>swing set</item>
+        <item>sword</item>
+        <item>syringe</item>
+        <item>table</item>
+        <item>teapot</item>
+        <item>teddy-bear</item>
+        <item>telephone</item>
+        <item>television</item>
+        <item>tennis racquet</item>
+        <item>tent</item>
+        <item>The Eiffel Tower</item>
+        <item>The Great Wall of China</item>
+        <item>The Mona Lisa</item>
+        <item>tiger</item>
+        <item>toaster</item>
+        <item>toe</item>
+        <item>toilet</item>
+        <item>tooth</item>
+        <item>toothbrush</item>
+        <item>toothpaste</item>
+        <item>tornado</item>
+        <item>tractor</item>
+        <item>traffic light</item>
+        <item>train</item>
+        <item>tree</item>
+        <item>triangle</item>
+        <item>trombone</item>
+        <item>truck</item>
+        <item>trumpet</item>
+        <item>t-shirt</item>
+        <item>umbrella</item>
+        <item>underwear</item>
+        <item>van</item>
+        <item>vase</item>
+        <item>violin</item>
+        <item>washing machine</item>
+        <item>watermelon</item>
+        <item>waterslide</item>
+        <item>whale</item>
+        <item>wheel</item>
+        <item>windmill</item>
+        <item>wine bottle</item>
+        <item>wine glass</item>
+        <item>wristwatch</item>
+        <item>yoga</item>
+        <item>zebra</item>
+        <item>zigzag</item>
+    </array>
+</resources>
