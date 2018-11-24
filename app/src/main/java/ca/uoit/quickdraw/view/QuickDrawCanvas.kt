@@ -49,7 +49,7 @@ class QuickDrawCanvas(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) 
             }
             MotionEvent.ACTION_UP -> {
                 strokes.last.addPoint(x, y)
-                strokeListener!!.onStroke(strokes.last)
+                strokeListener!!.onStroke(this, strokes.last)
                 true
             }
 
@@ -63,10 +63,11 @@ class QuickDrawCanvas(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) 
 
 class Stroke {
 
-    private val xPoints = LinkedList<Int>()
-    private val yPoints = LinkedList<Int>()
-    private val relativeTime = LinkedList<Int>()
     private val startTime = System.currentTimeMillis()
+
+    internal val xPoints = LinkedList<Int>()
+    internal val yPoints = LinkedList<Int>()
+    internal val relativeTime = LinkedList<Int>()
     internal val path = Path()
 
     fun addPoint(x: Int, y: Int) {
@@ -85,6 +86,6 @@ class Stroke {
 
 interface StrokeListener {
 
-    fun onStroke(stroke: Stroke)
+    fun onStroke(view: View, stroke: Stroke)
 
 }
