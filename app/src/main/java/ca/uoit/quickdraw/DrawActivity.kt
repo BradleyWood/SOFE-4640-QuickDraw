@@ -13,6 +13,8 @@ import ca.uoit.quickdraw.view.Stroke
 import ca.uoit.quickdraw.view.StrokeListener
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpPost
+import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.doAsync
 import java.util.*
 
 class DrawActivity : AppCompatActivity(), StrokeListener {
@@ -56,7 +58,8 @@ class DrawActivity : AppCompatActivity(), StrokeListener {
         val stk = listOf(stroke.xPoints, stroke.yPoints, stroke.relativeTime)
         strokes.add(stk)
 
-        val obj = "{\"input_type\":0,\"requests\":[{\"language\":\"quickdraw\",\"writing_guide\":{\"width\":${view.width},\"height\":${view.height}},\"ink\":" +
+        val obj =
+            "{\"input_type\":0,\"requests\":[{\"language\":\"quickdraw\",\"writing_guide\":{\"width\":${view.width},\"height\":${view.height}},\"ink\":" +
                     "$strokes" +
                     "}]}"
 
@@ -73,6 +76,16 @@ class DrawActivity : AppCompatActivity(), StrokeListener {
                 resultIntent.putExtra("strokes", strokes)
                 resultIntent.putExtra("best", bestResult)
                 resultIntent.putExtra("success", true)
+
+                doAsync {
+                    database.use {
+                        insert(
+                            "drawings",
+                            "object" to bestResult,
+                            "strokes" to strokes.toString()
+                        )
+                    }
+                }
 
                 setResult(RESULT_OK, resultIntent)
                 finish()
