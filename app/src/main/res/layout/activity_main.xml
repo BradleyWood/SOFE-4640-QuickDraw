@@ -8,24 +8,65 @@
         tools:context=".MainActivity">
 
 
-    <Button
-            android:text="@string/play"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button"
-            android:onClick="onPressPlay"
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/banner"
+            app:srcCompat="@drawable/ic_banner"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <Button
-            android:text="@string/settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button3"
-            android:onClick="onPressSettings"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.0" android:layout_marginTop="-64dp"/>
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/drawings"
+            app:srcCompat="@drawable/ic_drawings"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/button"/>
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.0" android:layout_marginBottom="2dp"
+            android:layout_marginTop="-64dp"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toEndOf="@+id/banner"
+            app:layout_constraintEnd_toStartOf="@+id/banner"
+            android:layout_marginBottom="52dp"
+            app:layout_constraintBottom_toBottomOf="@+id/drawings">
+        <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_weight="1"/>
+        <Button
+                android:text="@string/play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/playBtn"
+                android:background="#FFFF00"
+                android:onClick="onPressPlay"
+                tools:layout_editor_absoluteY="371dp"
+                tools:layout_editor_absoluteX="48dp"/>
+        <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        <Button
+                android:text="@string/settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFF00"
+                android:id="@+id/settingsBtn"
+                android:onClick="onPressSettings"
+                tools:layout_editor_absoluteY="371dp"
+                tools:layout_editor_absoluteX="248dp"/>
+        <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_weight="1"/>
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
