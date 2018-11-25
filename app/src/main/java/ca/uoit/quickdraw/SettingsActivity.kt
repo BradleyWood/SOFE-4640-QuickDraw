@@ -84,15 +84,15 @@ class SettingsActivity : AppCompatPreferenceActivity() {
             pref.setOnPreferenceClickListener {
                 ColorPickerDialogBuilder
                     .with(it.context)
-                    .setTitle("Choose color")
+                    .setTitle(getString(R.string.choose_color))
                     .initialColor(prefs.getInt("draw_color", Color.RED))
                     .showAlphaSlider(false)
                     .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                     .density(12)
-                    .setPositiveButton("ok") { dialog, selectedColor, allColors ->
+                    .setPositiveButton(getString(R.string.ok_btn)) { dialog, selectedColor, allColors ->
                         prefs.edit().putInt("draw_color", selectedColor).apply()
                     }
-                    .setNegativeButton("cancel") { dialog, which -> }
+                    .setNegativeButton(getString(R.string.cancel)) { dialog, which -> }
                     .build()
                     .show()
                 true
