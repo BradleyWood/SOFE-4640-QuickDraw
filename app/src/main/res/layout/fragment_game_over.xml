@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context=".GameOverFragment">
+
+    <ca.uoit.quickdraw.view.DrawingView
+            android:layout_width="133dp"
+            android:layout_height="100dp"
+            android:id="@+id/drawingView3"
+            app:layout_constraintEnd_toStartOf="@+id/drawingView4"
+            android:layout_marginEnd="60dp" android:layout_marginRight="60dp" android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/drawingView5" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"/>
+    <ca.uoit.quickdraw.view.DrawingView
+            android:layout_width="133dp"
+            android:layout_height="100dp"
+            android:id="@+id/drawingView1"
+            app:layout_constraintEnd_toStartOf="@+id/drawingView2"
+            android:layout_marginEnd="60dp" android:layout_marginRight="60dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginBottom="40dp" app:layout_constraintBottom_toTopOf="@+id/drawingView3"/>
+    <ca.uoit.quickdraw.view.DrawingView
+            android:layout_width="133dp"
+            android:layout_height="100dp"
+            android:id="@+id/drawingView2"
+            app:layout_constraintStart_toEndOf="@+id/drawingView1"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="40dp" app:layout_constraintBottom_toTopOf="@+id/drawingView4"/>
+    <ca.uoit.quickdraw.view.DrawingView
+            android:layout_width="133dp"
+            android:layout_height="100dp"
+            android:id="@+id/drawingView4"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/drawingView6"
+            app:layout_constraintStart_toEndOf="@+id/drawingView3" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <ca.uoit.quickdraw.view.DrawingView
+            android:layout_width="133dp"
+            android:layout_height="100dp"
+            android:id="@+id/drawingView5"
+            app:layout_constraintEnd_toStartOf="@+id/drawingView6"
+            android:layout_marginEnd="60dp" android:layout_marginRight="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="40dp"/>
+    <ca.uoit.quickdraw.view.DrawingView
+            android:layout_width="133dp"
+            android:layout_height="100dp"
+            android:id="@+id/drawingView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="40dp"
+            app:layout_constraintStart_toEndOf="@+id/drawingView5"
+    />
+    <TextView
+            android:text="QuickDraw"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:id="@+id/titleTextView" android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/drawingView1" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" android:textSize="18sp" android:textStyle="bold"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/drawingView3" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/drawingView1"
+            app:layout_constraintStart_toStartOf="@+id/drawingView1"
+            app:layout_constraintEnd_toEndOf="@+id/drawingView1"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/drawingView2" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/drawingView4"
+            app:layout_constraintStart_toStartOf="@+id/drawingView2"
+            app:layout_constraintEnd_toEndOf="@+id/drawingView2"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/drawingView3" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/drawingView5" app:layout_constraintEnd_toEndOf="@+id/drawingView3"
+            app:layout_constraintStart_toStartOf="@+id/drawingView3"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/drawingView4" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/drawingView6" app:layout_constraintEnd_toEndOf="@+id/drawingView4"
+            app:layout_constraintStart_toStartOf="@+id/drawingView4"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/drawingView5" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="@+id/drawingView5"
+            app:layout_constraintEnd_toEndOf="@+id/drawingView5"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/drawingView6"
+            app:layout_constraintStart_toStartOf="@+id/drawingView6"
+            app:layout_constraintEnd_toEndOf="@+id/drawingView6"/>
+
+</android.support.constraint.ConstraintLayout>
