@@ -21,10 +21,6 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".DrawActivity"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
                 android:name=".SettingsActivity"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
