@@ -11,24 +11,28 @@
             android:layout_height="100dp"
             android:id="@+id/drawingView3"
             app:layout_constraintEnd_toStartOf="@+id/drawingView4"
-            android:layout_marginEnd="60dp" android:layout_marginRight="60dp" android:layout_marginBottom="40dp"
+            android:layout_marginEnd="30dp" android:layout_marginRight="30dp" android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toTopOf="@+id/drawingView5" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"/>
+            app:layout_constraintHorizontal_bias="0.5" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"/>
     <ca.uoit.quickdraw.view.DrawingView
             android:layout_width="133dp"
             android:layout_height="100dp"
             android:id="@+id/drawingView1"
             app:layout_constraintEnd_toStartOf="@+id/drawingView2"
-            android:layout_marginEnd="60dp" android:layout_marginRight="60dp"
+            android:layout_marginEnd="30dp" android:layout_marginRight="30dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
-            android:layout_marginBottom="40dp" app:layout_constraintBottom_toTopOf="@+id/drawingView3"/>
+            android:layout_marginBottom="40dp" app:layout_constraintBottom_toTopOf="@+id/drawingView3"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"/>
     <ca.uoit.quickdraw.view.DrawingView
             android:layout_width="133dp"
             android:layout_height="100dp"
             android:id="@+id/drawingView2"
             app:layout_constraintStart_toEndOf="@+id/drawingView1"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="40dp" app:layout_constraintBottom_toTopOf="@+id/drawingView4"/>
+            android:layout_marginBottom="40dp" app:layout_constraintBottom_toTopOf="@+id/drawingView4"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"/>
     <ca.uoit.quickdraw.view.DrawingView
             android:layout_width="133dp"
             android:layout_height="100dp"
@@ -36,15 +40,17 @@
             android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toTopOf="@+id/drawingView6"
             app:layout_constraintStart_toEndOf="@+id/drawingView3" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            android:layout_marginLeft="30dp" android:layout_marginStart="30dp"/>
     <ca.uoit.quickdraw.view.DrawingView
             android:layout_width="133dp"
             android:layout_height="100dp"
             android:id="@+id/drawingView5"
             app:layout_constraintEnd_toStartOf="@+id/drawingView6"
-            android:layout_marginEnd="60dp" android:layout_marginRight="60dp"
+            android:layout_marginEnd="30dp" android:layout_marginRight="30dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="40dp"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="40dp"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"/>
     <ca.uoit.quickdraw.view.DrawingView
             android:layout_width="133dp"
             android:layout_height="100dp"
@@ -52,7 +58,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="40dp"
             app:layout_constraintStart_toEndOf="@+id/drawingView5"
-    />
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"/>
     <TextView
             android:text="QuickDraw"
             android:layout_width="wrap_content"
@@ -108,5 +115,15 @@
             app:layout_constraintTop_toBottomOf="@+id/drawingView6"
             app:layout_constraintStart_toStartOf="@+id/drawingView6"
             app:layout_constraintEnd_toEndOf="@+id/drawingView6"/>
+    <Button
+            android:text="@string/ok_btn"
+            android:layout_width="45dp"
+            android:layout_height="38dp"
+            android:id="@+id/gameOverBtn" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.995"
+            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="8dp"/>
 
 </android.support.constraint.ConstraintLayout>

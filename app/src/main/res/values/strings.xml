@@ -6,4 +6,5 @@
     <string name="ok_btn">ok</string>
     <string name="cancel">cancel</string>
     <string name="choose_color">Choose color</string>
+    <string name="draw_instructions">"Draw %1$s in %2$d seconds."</string>
 </resources>

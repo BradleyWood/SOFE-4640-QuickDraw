@@ -28,6 +28,9 @@
                 android:name=".SettingsActivity"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity android:name=".GameActivity"
+                  android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
