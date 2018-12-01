@@ -37,8 +37,6 @@ class MainActivity : AppCompatActivity() {
 
     fun onPressHistory(view: View) {
         val reqIntent = Intent(this, HistoryActivity::class.java)
-        reqIntent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, HistoryActivity::class.java.name)
-        reqIntent.putExtra(PreferenceActivity.EXTRA_NO_HEADERS, true)
 
         startActivity(reqIntent)
     }
