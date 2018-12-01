@@ -54,7 +54,7 @@ class DrawFragment : Fragment(), StrokeListener {
 
         handler.postDelayed({
             if (isVisible) {
-                listener!!.onCompleteRound(strokes, bestResult)
+                listener!!.onCompleteRound(strokes, canvas.width, canvas.height, bestResult)
             }
         }, timeLimit * 1000L)
 
@@ -94,7 +94,7 @@ class DrawFragment : Fragment(), StrokeListener {
                 Log.d("AI", "I see $bestResult.")
 
                 if (bestResult == objectType) {
-                    listener!!.onCompleteRound(strokes, bestResult)
+                    listener!!.onCompleteRound(strokes, view.width, view.height, bestResult)
                 }
             }
         }
@@ -115,7 +115,7 @@ class DrawFragment : Fragment(), StrokeListener {
     }
 
     interface DrawFragmentListener {
-        fun onCompleteRound(strokes: List<Stroke>, guess: String)
+        fun onCompleteRound(strokes: List<Stroke>, displayWidth: Int, displayHeight: Int, guess: String)
     }
 
     companion object {

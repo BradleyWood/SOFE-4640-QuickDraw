@@ -44,7 +44,7 @@ class GameActivity : AppCompatActivity(), RoundInfoFragment.RoundInfoFragmentLis
         supportFragmentManager.beginTransaction().replace(R.id.gameLayout, fragment).commit()
     }
 
-    override fun onCompleteRound(strokes: List<Stroke>, guess: String) {
+    override fun onCompleteRound(strokes: List<Stroke>, displayWidth: Int, displayHeight: Int, guess: String) {
         val previousObj = objects[round]
 
         roundDrawings.add(strokes)
@@ -64,7 +64,7 @@ class GameActivity : AppCompatActivity(), RoundInfoFragment.RoundInfoFragmentLis
         }
 
         if (round >= MAX_ROUNDS) {
-            val fragment = GameOverFragment.newInstance(LinkedList(roundDrawings), arrayOf())
+            val fragment = GameOverFragment.newInstance(LinkedList(roundDrawings), arrayOf(), displayWidth, displayHeight)
             supportFragmentManager.beginTransaction().replace(R.id.gameLayout, fragment).commit()
         } else {
             showRoundInfo(round, timeLimit)

@@ -1,21 +1,19 @@
 package ca.uoit.quickdraw.view
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import java.util.*
 import android.graphics.*
-
+import android.util.Log
 
 class DrawingView(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) {
 
     private val paths = LinkedList<Path>()
     private val paint: Paint = Paint()
-
-    private var minX = Integer.MAX_VALUE
-    private var maxX = 0
-    private var minY = Integer.MAX_VALUE
-    private var maxY = 0
+    private var canvasWidth: Int = 0
+    private var canvasHeight: Int = 0
 
     init {
         paint.color = Color.BLACK
@@ -26,29 +24,32 @@ class DrawingView(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) {
         paint.strokeCap = Paint.Cap.ROUND
     }
 
-    fun addStrokes(strokes: List<Stroke>) {
+    fun setDrawing(strokes: List<Stroke>, canvasWidth: Int, canvasHeight: Int) {
+        this.canvasWidth = canvasWidth
+        this.canvasHeight = canvasHeight
+
         for (stroke in strokes) {
-            val path = stroke.path
-
-            val scaleMatrix = Matrix()
-            val rectF = RectF()
-
-            path.computeBounds(rectF, true)
-
-            scaleMatrix.setScale(width.toFloat() / (maxX - minX), height.toFloat() / (maxY - minY))
-            path.transform(scaleMatrix)
-
-            paths.add(path)
+            paths.add(stroke.path)
         }
 
         invalidate()
     }
 
+    @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas?) {
         canvas!!.drawRect(0f, 0f, width.toFloat(), height.toFloat(), paint)
 
         for (path in paths) {
-            canvas.drawPath(path, paint)
+            val newPath = Path()
+
+            val scaleMatrix = Matrix()
+
+            Log.d("GG", "${width.toFloat() / canvasWidth}, ${height.toFloat() / canvasHeight} ")
+
+            scaleMatrix.setScale(width.toFloat() / canvasWidth, height.toFloat() / canvasHeight)
+            path.transform(scaleMatrix, newPath)
+
+            canvas.drawPath(newPath, paint)
         }
     }
 }
