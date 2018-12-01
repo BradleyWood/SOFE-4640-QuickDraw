@@ -51,7 +51,7 @@
                 android:background="#FFFF00"
                 android:onClick="onPressPlay"
                 tools:layout_editor_absoluteY="371dp"
-                tools:layout_editor_absoluteX="48dp"/>
+                tools:layout_editor_absoluteX="10dp"/>
         <Space
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -64,7 +64,20 @@
                 android:id="@+id/settingsBtn"
                 android:onClick="onPressSettings"
                 tools:layout_editor_absoluteY="371dp"
-                tools:layout_editor_absoluteX="248dp"/>
+                tools:layout_editor_absoluteX="150dp"/>
+        <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        <Button
+                android:text="@string/history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFF00"
+                android:id="@+id/historyBtn"
+                android:onClick="onPressHistory"
+                tools:layout_editor_absoluteY="371dp"
+                tools:layout_editor_absoluteX="240dp"/>
         <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:layout_weight="1"/>
