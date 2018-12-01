@@ -22,6 +22,8 @@ class QuickDrawDatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "MyDa
         db.createTable(
             "drawings", true,
             "object" to TEXT,
+            "guess" to TEXT,
+            "time" to INTEGER,
             "strokes" to TEXT
         )
     }

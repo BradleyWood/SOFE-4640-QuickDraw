@@ -4,8 +4,9 @@ import android.app.Activity
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import ca.uoit.quickdraw.view.Stroke
-import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.db.insertOrThrow
 import org.jetbrains.anko.doAsync
 import java.util.*
 
@@ -51,20 +52,22 @@ class GameActivity : AppCompatActivity(), RoundInfoFragment.RoundInfoFragmentLis
 
         round++
 
-        if (guess == previousObj) {
-            doAsync {
-                database.use {
-                    insert(
-                        "drawings",
-                        "object" to previousObj,
-                        "strokes" to strokes.toString()
-                    )
-                }
+        doAsync {
+            database.use {
+                insertOrThrow(
+                    "drawings",
+                    "object" to previousObj,
+                    "guess" to guess,
+                    "time" to System.currentTimeMillis(),
+                    "strokes" to strokes.toString()
+                )
+                Log.d("db", "db insert for : $previousObj")
             }
         }
 
         if (round >= MAX_ROUNDS) {
-            val fragment = GameOverFragment.newInstance(LinkedList(roundDrawings), arrayOf(), displayWidth, displayHeight)
+            val fragment =
+                GameOverFragment.newInstance(LinkedList(roundDrawings), arrayOf(), displayWidth, displayHeight)
             supportFragmentManager.beginTransaction().replace(R.id.gameLayout, fragment).commit()
         } else {
             showRoundInfo(round, timeLimit)
