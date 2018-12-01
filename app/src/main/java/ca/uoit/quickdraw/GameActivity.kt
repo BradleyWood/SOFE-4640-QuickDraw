@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import ca.uoit.quickdraw.view.Stroke
+import com.google.gson.Gson
 import org.jetbrains.anko.db.insertOrThrow
 import org.jetbrains.anko.doAsync
 import java.util.*
@@ -18,6 +19,7 @@ class GameActivity : AppCompatActivity(), RoundInfoFragment.RoundInfoFragmentLis
     private lateinit var objectList: Array<String>
     private lateinit var objects: LinkedList<String>
     private val roundDrawings = LinkedList<List<Stroke>>()
+    private val gson = Gson()
     private var timeLimit = 20
     private var round = 0
 
@@ -59,7 +61,7 @@ class GameActivity : AppCompatActivity(), RoundInfoFragment.RoundInfoFragmentLis
                     "object" to previousObj,
                     "guess" to guess,
                     "time" to System.currentTimeMillis(),
-                    "strokes" to strokes.toString()
+                    "strokes" to gson.toJson(strokes)
                 )
                 Log.d("db", "db insert for : $previousObj")
             }
