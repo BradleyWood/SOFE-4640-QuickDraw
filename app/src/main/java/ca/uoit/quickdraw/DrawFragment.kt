@@ -86,7 +86,7 @@ class DrawFragment : Fragment(), StrokeListener {
                     "}]}"
 
         url.httpPost().jsonBody(obj).responseJson { _, _, (result, error) ->
-            if (error == null && result == null) {
+            if (error == null || result == null) {
                 val jsonResponse = result!!.array()
                 val rankedResults = jsonResponse.getJSONArray(1).getJSONArray(0).getJSONArray(1)
                 bestResult = rankedResults.getString(0)
