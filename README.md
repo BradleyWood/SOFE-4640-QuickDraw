@@ -8,3 +8,5 @@
 ![](/images/mailbox.png)
 
 ![](/images/color_chooser.png)
+
+![](/images/history.png)
