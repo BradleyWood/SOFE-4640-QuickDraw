@@ -61,7 +61,9 @@ class GameActivity : AppCompatActivity(), RoundInfoFragment.RoundInfoFragmentLis
                     "object" to previousObj,
                     "guess" to guess,
                     "time" to System.currentTimeMillis(),
-                    "strokes" to gson.toJson(strokes)
+                    "strokes" to gson.toJson(strokes),
+                    "width" to displayWidth,
+                    "height" to displayHeight
                 )
                 Log.d("db", "db insert for : $previousObj")
             }

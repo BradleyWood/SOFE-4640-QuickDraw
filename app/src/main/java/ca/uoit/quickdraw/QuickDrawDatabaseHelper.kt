@@ -24,7 +24,9 @@ class QuickDrawDatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "MyDa
             "object" to TEXT,
             "guess" to TEXT,
             "time" to INTEGER,
-            "strokes" to TEXT
+            "strokes" to TEXT,
+            "width" to INTEGER,
+            "height" to INTEGER
         )
     }
 
