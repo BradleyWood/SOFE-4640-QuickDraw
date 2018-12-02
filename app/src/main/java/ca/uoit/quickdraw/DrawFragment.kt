@@ -9,9 +9,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import ca.uoit.quickdraw.model.Stroke
 import ca.uoit.quickdraw.view.QuickDrawCanvas
-import ca.uoit.quickdraw.view.Stroke
-import ca.uoit.quickdraw.view.StrokeListener
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpPost
 import java.util.*
@@ -21,7 +20,7 @@ private const val ARG_OBJECT_TYPE = "object"
 private const val ARG_TIME = "time"
 private const val DRAW_COLOR = "draw_color"
 
-class DrawFragment : Fragment(), StrokeListener {
+class DrawFragment : Fragment(), QuickDrawCanvas.StrokeListener {
 
     private val rawStrokeData = LinkedList<List<List<Int>>>()
     private val strokes = LinkedList<Stroke>()

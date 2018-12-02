@@ -4,10 +4,10 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.Path
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import ca.uoit.quickdraw.model.Stroke
 import java.util.*
 import kotlin.math.roundToInt
 
@@ -76,33 +76,10 @@ class QuickDrawCanvas(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) 
         postInvalidate()
         return result
     }
-}
 
-class Stroke {
+    interface StrokeListener {
 
-    private val startTime = System.currentTimeMillis()
+        fun onStroke(view: View, stroke: Stroke)
 
-    internal val xPoints = LinkedList<Int>()
-    internal val yPoints = LinkedList<Int>()
-    internal val relativeTime = LinkedList<Int>()
-    internal val path = Path()
-
-    fun addPoint(x: Int, y: Int) {
-        xPoints.add(x)
-        yPoints.add(y)
-
-        if (relativeTime.size == 0) {
-            relativeTime.add(0)
-            path.moveTo(x.toFloat(), y.toFloat())
-        } else {
-            relativeTime.add((System.currentTimeMillis() - startTime).toInt())
-            path.lineTo(x.toFloat(), y.toFloat())
-        }
     }
-}
-
-interface StrokeListener {
-
-    fun onStroke(view: View, stroke: Stroke)
-
 }

@@ -1,63 +1,115 @@
 package ca.uoit.quickdraw
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
-import android.widget.ScrollView
-import ca.uoit.quickdraw.view.ObservableScrollView
-import ca.uoit.quickdraw.view.Stroke
+import android.view.View
+import android.view.ViewGroup
+import android.widget.*
 import com.google.gson.Gson
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.doAsync
 import java.util.*
 import com.google.gson.reflect.TypeToken
+import org.jetbrains.anko.uiThread
+import android.view.LayoutInflater
+import ca.uoit.quickdraw.model.DrawingModel
+import ca.uoit.quickdraw.model.Stroke
+import ca.uoit.quickdraw.view.DrawingView
+import org.jetbrains.anko.db.SqlOrderDirection
 
 
-class HistoryActivity : AppCompatActivity(), ObservableScrollView.ScrollViewListener {
+class HistoryActivity : AppCompatActivity() {
 
-    private var timePlaceholder: Long = 0
+    private val drawingTokenType = object : TypeToken<List<Stroke>>() {}.type
+    private lateinit var listView: ListView
+    private val listAdaptor = LinkedList<DrawingModel>()
+    private lateinit var adapter: QDViewAdaptor
+    private var timePlaceholder: Long = Long.MAX_VALUE
     private val gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)
 
-        val scrollView: ObservableScrollView = findViewById(R.id.history_scroll_view)
-        scrollView.scrollListener = this
+        listView = findViewById(R.id.history_list_view)
+        adapter = QDViewAdaptor(this, listAdaptor)
+        listView.adapter = adapter
 
         addResultsToScrollView(10)
     }
 
     private fun addResultsToScrollView(amount: Int) {
         doAsync {
-            synchronized(this@HistoryActivity) {
-                val results = LinkedList<Any>()
-                database.use {
-                    select(
-                        "drawings"
-                    ).whereArgs(
-                        "time > {time}",
-                        "time" to timePlaceholder
-                    ).exec {
-                        while (moveToNext()) {
-                            val obj = getString(getColumnIndex("object"))
-                            val time = getLong(getColumnIndex("time"))
-                            val json = getString(getColumnIndex("strokes"))
+            val datum = LinkedList<DrawingModel>()
+            database.use {
+                select(
+                    "drawings"
+                ).whereArgs(
+                    "time < {time}",
+                    "time" to timePlaceholder
+                ).limit(amount).orderBy("time", SqlOrderDirection.DESC).exec {
+                    while (moveToNext()) {
+                        val obj = getString(getColumnIndex("object"))
+                        val time = getLong(getColumnIndex("time"))
+                        val json = getString(getColumnIndex("strokes"))
+                        val width = getInt(getColumnIndex("width"))
+                        val height = getInt(getColumnIndex("height"))
 
-                            val type = object : TypeToken<List<Stroke>>() {}.type
-                            val strokes: List<Stroke> = gson.fromJson(json, type)
+                        // so we don't re add previous results
+                        if (time < timePlaceholder)
+                            timePlaceholder = time
 
-                            results.add(DrawingModel(obj, time, strokes))
-                        }
+                        val strokes: List<Stroke> = gson.fromJson(json, drawingTokenType)
+                        datum.add(DrawingModel(obj, time, strokes, width, height))
                     }
+
+                    close()
                 }
+            }
+
+            uiThread {
+                for (drawingModel in datum) {
+                    listAdaptor.add(drawingModel)
+                }
+
+                adapter.notifyDataSetChanged()
             }
         }
     }
 
-    data class DrawingModel(val obj: String, val time: Long, val strokes: List<Stroke>)
+    class QDViewAdaptor(private val ctx: Context, val list: List<DrawingModel>) : BaseAdapter() {
 
-    override fun onScrollToBottom(view: ScrollView) {
+        override fun getItemId(position: Int): Long {
+            return position.toLong()
+        }
 
+        override fun getCount(): Int {
+            return list.size
+        }
+
+        override fun getItem(position: Int): DrawingModel {
+            return list[position]
+        }
+
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+            val item = getItem(position)
+            var listItem = convertView
+
+            if (listItem == null) {
+                val inflater = LayoutInflater.from(ctx)
+                listItem = inflater.inflate(R.layout.list_adaptor, parent, false)
+            }
+
+            listItem!!
+
+            val textView: TextView = listItem.findViewById(R.id.list_text_view)
+            textView.text = item.obj
+
+            val dv: DrawingView = listItem.findViewById(R.id.list_drawing_view)
+            dv.setDrawing(item.strokes, item.originalWidth, item.originalHeight)
+
+            return listItem
+        }
     }
 }

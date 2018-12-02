@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import ca.uoit.quickdraw.model.Stroke
 import ca.uoit.quickdraw.view.DrawingView
-import ca.uoit.quickdraw.view.Stroke
 import java.util.*
 
 private const val ARG_DRAWINGS = "round_drawings"

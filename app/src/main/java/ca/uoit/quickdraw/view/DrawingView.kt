@@ -1,12 +1,11 @@
 package ca.uoit.quickdraw.view
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import java.util.*
 import android.graphics.*
-import android.util.Log
+import ca.uoit.quickdraw.model.Stroke
 
 class DrawingView(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) {
 
@@ -14,6 +13,8 @@ class DrawingView(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) {
     private val paint: Paint = Paint()
     private var canvasWidth: Int = 0
     private var canvasHeight: Int = 0
+    private val scaleMatrix = Matrix()
+    private val newPath = Path()
 
     init {
         paint.color = Color.BLACK
@@ -28,28 +29,39 @@ class DrawingView(ctx: Context, attrSet: AttributeSet) : View(ctx, attrSet) {
         this.canvasWidth = canvasWidth
         this.canvasHeight = canvasHeight
 
-        for (stroke in strokes) {
-            paths.add(stroke.path)
+        synchronized(paths) {
+            paths.clear()
+
+            for (stroke in strokes) {
+                val path = Path()
+
+                for (i in 0 until stroke.xPoints.size) {
+                    if (i == 0)
+                        path.moveTo(stroke.xPoints[i].toFloat(), stroke.yPoints[i].toFloat())
+                    else
+                        path.lineTo(stroke.xPoints[i].toFloat(), stroke.yPoints[i].toFloat())
+                }
+
+                paths.add(path)
+            }
         }
 
         invalidate()
     }
 
-    @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas?) {
         canvas!!.drawRect(0f, 0f, width.toFloat(), height.toFloat(), paint)
 
-        for (path in paths) {
-            val newPath = Path()
+        synchronized(paths) {
+            for (path in paths) {
+                newPath.reset()
+                scaleMatrix.reset()
 
-            val scaleMatrix = Matrix()
+                scaleMatrix.setScale(width.toFloat() / canvasWidth, height.toFloat() / canvasHeight)
+                path.transform(scaleMatrix, newPath)
 
-            Log.d("GG", "${width.toFloat() / canvasWidth}, ${height.toFloat() / canvasHeight} ")
-
-            scaleMatrix.setScale(width.toFloat() / canvasWidth, height.toFloat() / canvasHeight)
-            path.transform(scaleMatrix, newPath)
-
-            canvas.drawPath(newPath, paint)
+                canvas.drawPath(newPath, paint)
+            }
         }
     }
 }

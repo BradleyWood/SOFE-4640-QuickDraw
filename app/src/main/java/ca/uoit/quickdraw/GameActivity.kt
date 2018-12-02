@@ -4,8 +4,7 @@ import android.app.Activity
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import ca.uoit.quickdraw.view.Stroke
+import ca.uoit.quickdraw.model.Stroke
 import com.google.gson.Gson
 import org.jetbrains.anko.db.insertOrThrow
 import org.jetbrains.anko.doAsync
@@ -65,7 +64,6 @@ class GameActivity : AppCompatActivity(), RoundInfoFragment.RoundInfoFragmentLis
                     "width" to displayWidth,
                     "height" to displayHeight
                 )
-                Log.d("db", "db insert for : $previousObj")
             }
         }
 
