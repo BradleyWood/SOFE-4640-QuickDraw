@@ -17,6 +17,8 @@ import ca.uoit.quickdraw.model.DrawingModel
 import ca.uoit.quickdraw.model.Stroke
 import ca.uoit.quickdraw.view.DrawingView
 import org.jetbrains.anko.db.SqlOrderDirection
+import android.support.v4.widget.SwipeRefreshLayout
+import android.view.View.FOCUS_DOWN
 
 
 class HistoryActivity : AppCompatActivity() {
@@ -25,6 +27,7 @@ class HistoryActivity : AppCompatActivity() {
     private lateinit var listView: ListView
     private val listAdaptor = LinkedList<DrawingModel>()
     private lateinit var adapter: QDViewAdaptor
+    private lateinit var refreshLayout: SwipeRefreshLayout
     private var timePlaceholder: Long = Long.MAX_VALUE
     private val gson = Gson()
 
@@ -35,6 +38,12 @@ class HistoryActivity : AppCompatActivity() {
         listView = findViewById(R.id.history_list_view)
         adapter = QDViewAdaptor(this, listAdaptor)
         listView.adapter = adapter
+
+        refreshLayout = findViewById(R.id.pull_refresh)
+
+        refreshLayout.setOnRefreshListener {
+            addResultsToScrollView(10)
+        }
 
         addResultsToScrollView(10)
     }
@@ -74,6 +83,7 @@ class HistoryActivity : AppCompatActivity() {
                 }
 
                 adapter.notifyDataSetChanged()
+                refreshLayout.isRefreshing = false
             }
         }
     }

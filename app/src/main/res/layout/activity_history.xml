@@ -8,10 +8,17 @@
         android:id="@+id/activity_history"
         tools:context=".HistoryActivity">
 
-    <ListView
+
+    <android.support.v4.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/history_list_view"/>
+            android:id="@+id/pull_refresh">
 
+        <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/history_list_view"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </FrameLayout>
