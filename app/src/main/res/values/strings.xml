@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">quickdraw</string>
+    <string name="app_name">Quickdraw</string>
     <string name="play">Play</string>
     <string name="draw_color">Draw Color</string>
     <string name="settings">Settings</string>
