@@ -1,6 +1,7 @@
 package ca.uoit.quickdraw
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -18,7 +19,6 @@ import ca.uoit.quickdraw.model.Stroke
 import ca.uoit.quickdraw.view.DrawingView
 import org.jetbrains.anko.db.SqlOrderDirection
 import android.support.v4.widget.SwipeRefreshLayout
-import android.view.View.FOCUS_DOWN
 
 
 class HistoryActivity : AppCompatActivity() {
@@ -60,6 +60,7 @@ class HistoryActivity : AppCompatActivity() {
                 ).limit(amount).orderBy("time", SqlOrderDirection.DESC).exec {
                     while (moveToNext()) {
                         val obj = getString(getColumnIndex("object"))
+                        val guess = getString(getColumnIndex("guess"))
                         val time = getLong(getColumnIndex("time"))
                         val json = getString(getColumnIndex("strokes"))
                         val width = getInt(getColumnIndex("width"))
@@ -70,7 +71,7 @@ class HistoryActivity : AppCompatActivity() {
                             timePlaceholder = time
 
                         val strokes: List<Stroke> = gson.fromJson(json, drawingTokenType)
-                        datum.add(DrawingModel(obj, time, strokes, width, height))
+                        datum.add(DrawingModel(obj, guess, time, strokes, width, height))
                     }
 
                     close()
@@ -113,11 +114,20 @@ class HistoryActivity : AppCompatActivity() {
 
             listItem!!
 
-            val textView: TextView = listItem.findViewById(R.id.list_text_view)
-            textView.text = item.obj
+            val instructionView: TextView = listItem.findViewById(R.id.list_text_view)
+            instructionView.text = ctx.resources.getString(R.string.instruction, item.obj)
+
+            val guessView: TextView = listItem.findViewById(R.id.guess_text_view)
+            guessView.text = ctx.resources.getString(R.string.guess, item.guess)
 
             val dv: DrawingView = listItem.findViewById(R.id.list_drawing_view)
             dv.setDrawing(item.strokes, item.originalWidth, item.originalHeight)
+
+            if (item.guess == item.obj) {
+                listItem.setBackgroundColor(Color.GREEN)
+            } else {
+                listItem.setBackgroundColor(Color.RED)
+            }
 
             return listItem
         }

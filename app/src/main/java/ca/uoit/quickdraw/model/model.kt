@@ -5,6 +5,7 @@ import java.util.*
 
 data class DrawingModel(
     val obj: String,
+    val guess: String,
     val time: Long,
     val strokes: List<Stroke>,
     val originalWidth: Int,
