@@ -9,6 +9,7 @@
     <string name="choose_color">Choose color</string>
     <string name="draw_instructions">"Draw %1$s in %2$d seconds."</string>
     <string name="instruction">"Instruction: %1$s"</string>
+    <string name="correct">"Oh I know, it's %1$s"</string>
     <string name="guess">"Guess: %1$s"</string>
     <string name="summary">Quickdraw Summary</string>
 </resources>

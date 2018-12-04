@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import ca.uoit.quickdraw.model.Stroke
 import ca.uoit.quickdraw.view.QuickDrawCanvas
 import com.github.kittinunf.fuel.android.extension.responseJson
@@ -110,6 +111,8 @@ class DrawFragment : Fragment(), QuickDrawCanvas.StrokeListener {
                 Log.d("AI", "I see $bestResult.")
 
                 if (bestResult == objectType) {
+                    val message = resources.getString(R.string.correct, bestResult)
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                     listener!!.onCompleteRound(strokes, view.width, view.height, bestResult)
                 }
             }
