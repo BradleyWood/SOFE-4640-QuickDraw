@@ -30,6 +30,8 @@ class DrawFragment : Fragment(), QuickDrawCanvas.StrokeListener {
     private var objectType: String? = null
     private var timeLimit: Int = 20
     private var listener: DrawFragmentListener? = null
+    private var time = timeLimit
+    private var isPaused = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +39,7 @@ class DrawFragment : Fragment(), QuickDrawCanvas.StrokeListener {
             objectType = it.getString(ARG_OBJECT_TYPE)
             timeLimit = it.getInt(ARG_TIME)
             drawColor = it.getInt(DRAW_COLOR, Color.RED)
+            time = timeLimit
         }
     }
 
@@ -51,12 +54,6 @@ class DrawFragment : Fragment(), QuickDrawCanvas.StrokeListener {
 
         val handler = Handler()
 
-        handler.postDelayed({
-            if (isVisible) {
-                listener!!.onCompleteRound(strokes, canvas.width, canvas.height, bestResult)
-            }
-        }, timeLimit * 1000L)
-
         Thread {
             var time = timeLimit
 
@@ -64,12 +61,32 @@ class DrawFragment : Fragment(), QuickDrawCanvas.StrokeListener {
                 handler.post {
                     canvas.setInfoText("$time")
                 }
+
                 Thread.sleep(1000)
+
+                if (isPaused) {
+                    continue
+                }
+
                 time--
+            }
+
+            if (isVisible) {
+                listener!!.onCompleteRound(strokes, canvas.width, canvas.height, bestResult)
             }
         }.start()
 
         return view
+    }
+
+    override fun onPause() {
+        isPaused = true
+        super.onPause()
+    }
+
+    override fun onResume() {
+        isPaused = false
+        super.onResume()
     }
 
     override fun onStroke(view: View, stroke: Stroke) {
